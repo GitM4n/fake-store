@@ -33,7 +33,7 @@ const isFav = ref(false)
     color: var(--light);
     stroke: var(--black) ;
     stroke-width: 15;
-    opacity: .7;
+  
 }
 
 
@@ -45,10 +45,6 @@ const isFav = ref(false)
 }
 
 
-@media(hover:hover){
-    .heart:hover{
-        opacity: 1;
-    }
-}
+
 
 </style>

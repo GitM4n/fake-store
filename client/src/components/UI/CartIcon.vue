@@ -2,16 +2,21 @@
 
 <script setup lang="ts">
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
-import {faCartPlus} from '@fortawesome/free-solid-svg-icons';
+import {faCartShopping, faCartPlus, faCheck} from '@fortawesome/free-solid-svg-icons';
 
 import {ref} from 'vue'
+
+const props = defineProps<{
+    main?:boolean
+}>()
 
 const isAdded = ref(false)
 </script>
 
 <template>
-    <div class="add-to-cart">
-        <FontAwesomeIcon class="cart" :icon="faCartPlus" @click="isAdded = !isAdded" :class="{added: isAdded}"/>
+    <div class="add-to-cart" @click="isAdded = !isAdded">
+        <FontAwesomeIcon class="cart" :icon="props.main ? faCartShopping : faCartPlus" v-if="!isAdded"/>
+        <FontAwesomeIcon class="check" :icon="faCheck" v-else/>
     </div>
 </template>
 
@@ -30,21 +35,14 @@ const isAdded = ref(false)
 }
 
 
-.cart{
+.cart,
+.check{ 
     width: 100%;
     height: 100%;
     color: var(--light);
     stroke: var(--black) ;
     stroke-width: 15;
   
-}
-
-
-
-.cart.added{
-    color: var(--red);
-    stroke: var(--red) ;
-    opacity: 1;
 }
 
 

@@ -65,11 +65,10 @@ onMounted(async() => {
                 <div class="home-banner__left">
                     <h1 class="home-banner__title"><span class="mark">FAKE</span> STORE</h1>
                     <p class="home-banner__subtitle">
-                        Online shopping platform for fake products
+                        Store of fake products
                     </p>
                 </div>
                 <div class="home-banner__right">
-
                     <div class="home-banner__picture">
                         <img class="shirt" :src="shirtImageUrl">
                         <img class="laptop" :src="laptopImageUrl">
