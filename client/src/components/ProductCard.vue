@@ -61,7 +61,7 @@ const getSalePrice = computed(()=>{
                 <span class="price" :style="{background:gradientColor}">${{getSalePrice }}</span>
               </div>
            </div>
-           <router-link class="link" :to="{name: 'product', params: {productId: props.id}}"></router-link>
+           <router-link class="link" :to="{name: 'product', params: {productId: props.id}, query:{gradientColor:gradientColor}}"></router-link>
         </div>
         <div class="content-bottom">
           <h5 class="title">{{ shortTitle }}</h5>
@@ -70,8 +70,7 @@ const getSalePrice = computed(()=>{
                 <GeneralRatingStars :rating="props.rating"/>
               </div>
               <CartIcon class="add-to-cart" :style="{background:gradientColor}" />
-              
-            
+
             </div>
            
         </div>

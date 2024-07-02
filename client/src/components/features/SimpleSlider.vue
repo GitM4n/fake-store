@@ -57,7 +57,7 @@ function prevSlide() {
     <div class="simple-slider">
         <div class="simple-slider__inner">
             <div class="current-slide" @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd">
-                <slot name="currentSlide" :current-slide="currentSlide">CURRENT SLIDE</slot>
+                <slot name="currentSlide" :current-slide="currentSlide"></slot>
             </div>
             <div class="slides">
                 <slot name="slides" :set-current-slide="setCurrentSlide"></slot>
@@ -68,9 +68,14 @@ function prevSlide() {
 
 <style scoped>
 
-.current-slide{
-    width: 200px;
-    height: 200px;
+
+
+.slides{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
 }
+
+
 
 </style>

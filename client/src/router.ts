@@ -1,8 +1,10 @@
-import { createWebHashHistory, createRouter } from 'vue-router'
+import { createWebHashHistory, createRouter, RouteRecordRaw } from 'vue-router';
+
+
 
 import HomePage from './pages/HomePage.vue'
 
-const routes = [
+const routes:Array<RouteRecordRaw> = [
   { 
     path: '/', 
     name: 'home',
@@ -12,6 +14,7 @@ const routes = [
     path: '/product/:productId', 
     component: () => import('./pages/ProductPage.vue'),
     name:'product',
+    props: route => ({ productId: route.params.productId, gradientColor: route.query.gradientColor }),
   },
   //{ path: '/:pathMatch(.*)*', component: () => import('./pages/NotFoundPage.vue') },
 ]
