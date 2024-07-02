@@ -3,7 +3,7 @@ import {ref} from 'vue'
 
 const isDrag = ref<boolean>(false)
 
-export const useTouchEvents = () => {
+export const useAddCartTouchEvents = () => {
     const startX = ref<number>(0)
     const startY = ref<number>(0)
   

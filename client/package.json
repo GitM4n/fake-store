@@ -15,10 +15,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "pinia": "^2.1.7",
+    "uuid": "^10.0.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
+    "@types/uuid": "^10.0.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",

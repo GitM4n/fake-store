@@ -1,20 +1,15 @@
 <script setup lang="ts">
 import { useRandomColor } from '../../composables/useRandomColor';
-
-const props = defineProps<{
-    isActive: boolean
-}>()
+import { useLoader } from '../../composables/useLoader';
 
 const randomColor = useRandomColor()
-
-
-
+const loader = useLoader().loader
 
 </script>
 
 
 <template>
-    <div class="loader_wrapper" :class="{active: props.isActive}">
+    <div class="loader_wrapper" :class="{active: loader}">
         <span class="loader" :style="{color:randomColor}"></span>
     </div>
     

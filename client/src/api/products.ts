@@ -89,7 +89,6 @@ export const  productsApi = () => {
           
             const res = await fetch(`https://dummyjson.com/products?skip=80&limit=20`)
             const data = await res.json()
-            console.log(data.products)
             return data.products
          
             

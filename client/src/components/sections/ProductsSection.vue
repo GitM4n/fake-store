@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import ProductCard from '../ProductCard.vue'
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import { productsApi } from '../../api/products';
 import type { IProduct } from '../../api/products';
-import { useTouchEvents } from '../../composables/useTouchEvents';
+import { useAddCartTouchEvents } from '../../composables/useAddCartTouchEvents';
+import { useLoader } from '../../composables/useLoader';
 
-const touchEvents = useTouchEvents()
+const {startLoader, stopLoader} = useLoader()
+
+const touchEvents = useAddCartTouchEvents()
+
+const isDrag = computed(()=>{
+  return touchEvents.isDrag.value
+})
 
 const emit = defineEmits<{
     (e: 'onLoad'): void
@@ -15,8 +22,9 @@ const products = ref<IProduct[] | null>([])
 
 
 onMounted(async() => {
+    startLoader()
     products.value = await productsApi().getProductsForHome()
-    emit('onLoad')
+    stopLoader()
 })
 
 </script>
@@ -48,6 +56,7 @@ onMounted(async() => {
             </div>
         </div>
     </div>
+    <div class="drop-zone" :class="{active: isDrag}"></div>
 </template>
 
 <style scoped>
@@ -75,6 +84,21 @@ onMounted(async() => {
     text-align: center;
     font-size: 7rem;
     line-height: 1;
+}
+
+
+.drop-zone{
+    position: sticky;
+    bottom: 0;
+    height: 0;
+    z-index: 800;
+    border-radius: 50% 50% 50% 50% / 100% 100% 0% 0% ;
+    background-color: aquamarine;
+    transition: height .3s ease;
+    opacity: .9;
+}
+.drop-zone.active{
+  height: 150px;
 }
 
 </style>
